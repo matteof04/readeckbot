@@ -1,0 +1,12 @@
+services:
+  readeckbot:
+    image: ghcr.io/matteof04/readeckbot:latest
+    restart: always
+    environment:
+      - LOG_LEVEL=trace
+      - PRETTY_PRINT=true
+      - USERS_FILE=/etc/readeckbot/users.json
+      - API_URL=https://read.example.com
+      - BOT_TOKEN=${BOT_TOKEN}
+    volumes:
+      - ./users.json:/etc/readeckbot/users.json:bind
